@@ -1,43 +1,42 @@
 #include <stdio.h>
 
 int main() {
-    int array_do_usuario[50];
-    int quantidade_de_numeros;
+    int array[50];
+    int tamanho;
     int i, j, temp;
 
     printf("Quantos numeros voce quer ordenar (maximo de 50)? ");
-    scanf("%d", &quantidade_de_numeros);
+    scanf("%d", &tamanho);
 
-    if (quantidade_de_numeros > 50 || quantidade_de_numeros <= 0) {
+    if (tamanho > 50 || tamanho <= 0) {
         printf("Quantidade invalida!\n");
         return 1;
     }
 
-    printf("Agora digite os %d numeros:\n", quantidade_de_numeros);
-    for (i = 0; i < quantidade_de_numeros; i++) {
-        printf("numero %d: ", i + 1);
-        scanf("%d", &array_do_usuario[i]);
+    printf("Agora digite os %d numeros:\n", tamanho);
+    for (i = 0; i < tamanho; i++) {
+        scanf("%d", &array[i]);
     }
 
-    printf("\nSeu array: ");
-    for (i = 0; i < quantidade_de_numeros; i++) {
-        printf("%d ", array_do_usuario[i]);
+    printf("\nSeu array original: ");
+    for (i = 0; i < tamanho; i++) {
+        printf("%d ", array[i]);
     }
     printf("\n");
 
-    for (i = 0; i < quantidade_de_numeros - 1; i++) {
-        for (j = 0; j < quantidade_de_numeros - 1 - i; j++) {
-            if (array_do_usuario[j] > array_do_usuario[j+1]) {
-                temp = array_do_usuario[j];
-                array_do_usuario[j] = array_do_usuario[j+1];
-                array_do_usuario[j+1] = temp;
+    for (i = 0; i < tamanho - 1; i++) {
+        for (j = 0; j < tamanho - 1 - i; j++) {
+            if (array[j] > array[j+1]) {
+                temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
             }
         }
     }
 
     printf("Seu array ordenado: ");
-    for (i = 0; i < quantidade_de_numeros; i++) {
-        printf("%d ", array_do_usuario[i]);
+    for (i = 0; i < tamanho; i++) {
+        printf("%d ", array[i]);
     }
     printf("\n");
 
